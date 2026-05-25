@@ -1,7 +1,11 @@
 ﻿from dataclasses import dataclass
 
-from RecipeType import RecipeType
-from RecipeCuisine import RecipeCuisine
+try:
+    from .RecipeType import RecipeType
+    from .RecipeCuisine import RecipeCuisine
+except ImportError:
+    from RecipeType import RecipeType
+    from RecipeCuisine import RecipeCuisine
 
 
 @dataclass

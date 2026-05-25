@@ -1,6 +1,11 @@
-﻿from ShoesEntity import ShoesEntity
-from ShoesCreateRequest import ShoesCreateRequest
-from ShoesResponse import ShoesResponse
+﻿try:
+    from .ShoesEntity import ShoesEntity
+    from .ShoesCreateRequest import ShoesCreateRequest
+    from .ShoesResponse import ShoesResponse
+except ImportError:
+    from ShoesEntity import ShoesEntity
+    from ShoesCreateRequest import ShoesCreateRequest
+    from ShoesResponse import ShoesResponse
 
 
 class ShoesMapper:
@@ -18,6 +23,7 @@ class ShoesMapper:
     @staticmethod
     def map_entity_to_response(entity: ShoesEntity) -> ShoesResponse:
         return ShoesResponse(
+            id=entity.id,
             type=entity.type,
             style=entity.style,
             color=entity.color,

@@ -1,32 +1,26 @@
 ﻿import logging
 
-from logger_config import setup_logger
-from RecipeController import RecipeController
-from RecipeService import RecipeService
-from RecipeRepository import RecipeRepository
-from RecipeCreateRequest import RecipeCreateRequest
-from RecipeType import RecipeType
-from RecipeCuisine import RecipeCuisine
+import uvicorn
+from fastapi import FastAPI
 
-# Налаштовуємо кольорне логування один раз
+try:
+    from .logger_config import setup_logger
+    from .router import router as recipe_router
+except ImportError:
+    from logger_config import setup_logger
+    from router import router as recipe_router
+
 setup_logger()
-
 logger = logging.getLogger(__name__)
 
-
-request = RecipeCreateRequest(
-    name="Pasta Carbonara",
-    author="Mario Rossi",
-    type=RecipeType.MAINCOURSE,
-    description="Classic Italian pasta dish",
-    video_url="https://example.com/recipe1",
-    ingredients=["pasta", "eggs", "bacon", "parmesan"],
-    cuisine=RecipeCuisine.ITALIAN,
+app = FastAPI(
+    title="Recipe API",
+    description="CRUD API for recipes with OpenAPI documentation",
+    version="1.0.0",
 )
+app.include_router(recipe_router)
+logger.info("Recipe API initialized")
 
-logger.info("Starting application")
-controller = RecipeController(RecipeService(RecipeRepository()))
-response = controller.create_recipe(request)
 
-logger.info(f"Final result: {response}")
-print(f"\nRecipe created: {response}")
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)

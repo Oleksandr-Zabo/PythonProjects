@@ -1,8 +1,13 @@
 ﻿import logging
 
-from RecipeEntity import RecipeEntity
-from RecipeCreateRequest import RecipeCreateRequest
-from RecipeResponse import RecipeResponse
+try:
+    from .RecipeEntity import RecipeEntity
+    from .RecipeCreateRequest import RecipeCreateRequest
+    from .RecipeResponse import RecipeResponse
+except ImportError:
+    from RecipeEntity import RecipeEntity
+    from RecipeCreateRequest import RecipeCreateRequest
+    from RecipeResponse import RecipeResponse
 
 logger = logging.getLogger(__name__)
 

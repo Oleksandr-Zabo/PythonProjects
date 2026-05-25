@@ -1,7 +1,11 @@
 ﻿from dataclasses import dataclass
 
-from ShoesTypes import ShoesType
-from ShoesStyle import ShoesStyle
+try:
+    from .ShoesTypes import ShoesType
+    from .ShoesStyle import ShoesStyle
+except ImportError:
+    from ShoesTypes import ShoesType
+    from ShoesStyle import ShoesStyle
 
 @dataclass
 class ShoesEntity:

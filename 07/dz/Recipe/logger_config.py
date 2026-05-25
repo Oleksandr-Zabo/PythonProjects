@@ -20,12 +20,16 @@ def setup_logger():
             record.levelname = f"{log_color}{record.levelname}{self.RESET}"
             return super().format(record)
 
+    root_logger = logging.getLogger()
+    if any(getattr(handler, "_is_colored_recipe_handler", False) for handler in root_logger.handlers):
+        return
+
     handler = logging.StreamHandler(sys.stdout)
+    handler._is_colored_recipe_handler = True
     handler.setFormatter(ColoredFormatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S'
     ))
 
-    root_logger = logging.getLogger()
     root_logger.setLevel(logging.DEBUG)
     root_logger.addHandler(handler)

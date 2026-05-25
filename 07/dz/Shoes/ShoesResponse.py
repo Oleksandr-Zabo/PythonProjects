@@ -1,11 +1,16 @@
 ﻿from dataclasses import dataclass
 
-from ShoesTypes import ShoesType
-from ShoesStyle import ShoesStyle
+try:
+    from .ShoesTypes import ShoesType
+    from .ShoesStyle import ShoesStyle
+except ImportError:
+    from ShoesTypes import ShoesType
+    from ShoesStyle import ShoesStyle
 
 
 @dataclass
 class ShoesResponse:
+    id: int
     type: ShoesType
     style: ShoesStyle
     color: str
@@ -14,7 +19,7 @@ class ShoesResponse:
 
     def __str__(self):
         return (
-            f"ShoesResponse(type={self.type.name}, "
+            f"ShoesResponse(id={self.id}, type={self.type.name}, "
             f"style={self.style.name}, "
             f"color='{self.color}', "
             f"manufacturer='{self.manufacturer}', "

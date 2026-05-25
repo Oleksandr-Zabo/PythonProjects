@@ -1,20 +1,27 @@
-﻿from ShoesController import ShoesController
-from ShoesService import ShoesService
-from ShoesRepository import ShoesRepository
-from ShoesCreateRequest import ShoesCreateRequest
-from ShoesTypes import ShoesType
-from ShoesStyle import ShoesStyle
+﻿import logging
 
+import uvicorn
+from fastapi import FastAPI
 
-request = ShoesCreateRequest(
-    type=ShoesType.MEN,
-    style=ShoesStyle.BOOTS,
-    color="Black",
-    manufacturer="Nike",
-    size=42.5,
+try:
+    from .router import router as shoes_router
+except ImportError:
+    from router import router as shoes_router
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
 )
+logger = logging.getLogger(__name__)
 
-controller = ShoesController(ShoesService(ShoesRepository()))
-response = controller.create_shoes(request)
+app = FastAPI(
+    title="Shoes API",
+    description="CRUD API for shoes with OpenAPI documentation",
+    version="1.0.0",
+)
+app.include_router(shoes_router)
+logger.info("Shoes API initialized")
 
-print(f"Shoes created: {response}")
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8001)
