@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django DZ{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 24px; }
+        nav a { margin-right: 12px; }
+        table { border-collapse: collapse; margin-top: 12px; }
+        th, td { border: 1px solid #999; padding: 6px 10px; text-align: center; }
+        th { background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Python Django DZ</h1>
+    <nav>
+        <a href="/">Поточна дата і час</a>
+        <a href="/table/">Таблиця множення</a>
+        <a href="/programmer-day/">День програміста</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
+

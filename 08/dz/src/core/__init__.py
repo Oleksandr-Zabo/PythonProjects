@@ -1,0 +1,1 @@
+﻿# __init__.py — позначає папку як Python package.

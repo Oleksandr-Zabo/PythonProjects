@@ -1,0 +1,28 @@
+﻿{% extends "feachers/base.html" %}
+
+{% block title %}Таблиця множення{% endblock %}
+
+{% block content %}
+<h2>Завдання 2: Таблиця множення 1..10</h2>
+<table>
+    <thead>
+        <tr>
+            <th>x</th>
+            {% for n in numbers %}
+            <th>{{ n }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in table %}
+        <tr>
+            <th>{{ forloop.counter }}</th>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

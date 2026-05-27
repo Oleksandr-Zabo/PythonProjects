@@ -1,0 +1,9 @@
+﻿{% extends "feachers/base.html" %}
+
+{% block title %}Поточна дата і час{% endblock %}
+
+{% block content %}
+<h2>Завдання 1: Поточна дата і час</h2>
+<p>Зараз: <strong>{{ current_datetime|date:"d.m.Y H:i:s" }}</strong></p>
+{% endblock %}
+
