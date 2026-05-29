@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/08/dz/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/08/dz/src/django" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/4/dz" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/09_fastApi" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.14 (PythonProject)" jdkType="Python SDK" />
