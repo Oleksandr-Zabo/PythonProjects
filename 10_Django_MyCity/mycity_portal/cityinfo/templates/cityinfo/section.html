@@ -1,0 +1,42 @@
+{% extends "cityinfo/base.html" %}
+
+{% block content %}
+<section class="section-list">
+    <ul>
+        {% for item in items %}
+            <li class="item">
+                {% if item.img %}
+                    <div class="thumb">
+                        {% if item.href %}
+                            <a href="{{ item.href }}" target="_blank" rel="noopener">
+                                <img src="{{ item.img }}" alt="{{ item.title }}" />
+                            </a>
+                        {% else %}
+                            <img src="{{ item.img }}" alt="{{ item.title }}" />
+                        {% endif %}
+                    </div>
+                {% endif %}
+                <div class="meta">
+                    {% if item.href %}
+                        <a href="{{ item.href }}" target="_blank" rel="noopener">{{ item.title }}</a>
+                    {% else %}
+                        <span>{{ item.title }}</span>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    </section>
+
+    {% if local_images %}
+    <section class="presentation-images">
+        {% for src in local_images %}
+            <div class="slide">
+                <img src="{{ src }}" alt="Видатні люди" />
+            </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | Шаргородська громада</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cityinfo/style.css' %}">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand">Шаргородська громада</div>
+    <div class="sub-brand">Вінницька область, Жмеринський район</div>
+</header>
+
+<nav class="site-nav">
+    <a href="/">Головна</a> |
+    <a href="/news/">Новини</a> |
+    <a href="/management/">Голови міста</a> |
+    <a href="/facts/">Факти</a> |
+    <a href="/landmarks/">Видатне місто</a> |
+    <a href="/people/">Видатні люди</a> |
+    <a href="/photos/">Фото</a> |
+    <a href="/history/">Історія</a> |
+    <a href="/services/">Контакти</a>
+</nav>
+
+<nav class="site-nav-secondary">
+    <a href="/gallery/">🖼️ Галереї (БД)</a>
+</nav>
+
+<main class="container">
+    <h1>{{ section_name }}</h1>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+    Офіційний інформаційний портал громади
+</footer>
+</body>
+</html>
+

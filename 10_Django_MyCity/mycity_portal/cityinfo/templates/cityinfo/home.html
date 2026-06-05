@@ -1,0 +1,18 @@
+{% extends "cityinfo/base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h2>{{ hero_title }}</h2>
+    <p>{{ hero_subtitle }}</p>
+</section>
+
+<section>
+    <h3>Ключові розділи</h3>
+    <ul>
+        {% for item in highlights %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
+
