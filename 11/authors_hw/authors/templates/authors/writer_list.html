@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <p><a href="{% url 'author_create' %}">Додати нового письменника</a></p>
+    {% if writers %}
+        <ul>
+            {% for writer in writers %}
+                <li>
+                    <a href="{% url 'writer_detail' writer_slug=writer.slug %}">{{ writer.name }}</a>
+                    (<a href="{% url 'author_update' writer.pk %}">Редагувати</a> |
+                    <a href="{% url 'author_delete' writer.pk %}">Видалити</a>)
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Наразі немає доступних письменників.</p>
+    {% endif %}
+{% endblock %}

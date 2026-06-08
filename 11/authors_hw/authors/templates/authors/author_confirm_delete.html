@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Видалення письменника{% endblock %}
+
+{% block content %}
+    <h1>Видалення письменника</h1>
+    <p>Ви впевнені, що хочете видалити письменника "{{ object.name }}"?</p>
+    <p>Увага: Це також видалить всі книги цього письменника.</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Так, видалити</button>
+        <a href="{% url 'writer_list' %}">Скасувати</a>
+    </form>
+{% endblock %}

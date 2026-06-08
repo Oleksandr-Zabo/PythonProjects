@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if form.instance.pk %}Редагування книги{% else %}Додати книгу{% endif %}{% endblock %}
+
+{% block content %}
+    <h1>{% if form.instance.pk %}Редагування книги{% else %}Додати нову книгу{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}Зберегти{% else %}Створити{% endif %}</button>
+        <a href="{% url 'book_list' %}">Скасувати</a>
+    </form>
+{% endblock %}

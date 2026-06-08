@@ -1,0 +1,14 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ book.title }}</h1>
+    <p><strong>Автор:</strong> <a href="{% url 'writer_detail' writer_slug=book.author.slug %}">{{ book.author.name }}</a></p>
+    <p><strong>Рік видання:</strong> {{ book.year }}</p>
+    <p><strong>Опис:</strong> {{ book.description|linebreaksbr }}</p>
+    {% if book.rating > 0 %}
+        <p><strong>Місце в топі:</strong> {{ book.rating }}</p>
+    {% endif %}
+    <p><a href="{% url 'writer_detail' writer_slug=book.author.slug %}">Повернутися до сторінки автора</a></p>
+{% endblock %}

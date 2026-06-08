@@ -1,0 +1,20 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ author.name }}</h1>
+    <p><strong>Роки життя:</strong> {{ author.birth_year }}{% if author.death_year %} - {{ author.death_year }}{% endif %}</p>
+    <p><strong>Біографія:</strong> {{ author.bio|linebreaksbr }}</p>
+
+    <h2>Книги автора:</h2>
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li><a href="{% url 'book_detail_by_writer_and_slug' writer_slug=author.slug book_slug=book.slug %}">{{ book.title }}</a> ({{ book.year }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>У цього автора ще немає книг у нашій бібліотеці.</p>
+    {% endif %}
+{% endblock %}

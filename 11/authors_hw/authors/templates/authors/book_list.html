@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <p><a href="{% url 'book_create' %}">Додати нову книгу</a></p>
+    {% if books %}
+        <ol>
+            {% for book in books %}
+                <li>
+                    <a href="{% url 'book_detail_by_rating' rating=book.rating %}">{{ book.title }}</a>
+                    (Автор: <a href="{% url 'writer_detail' writer_slug=book.author.slug %}">{{ book.author.name }}</a>, Рік: {{ book.year }})
+                    - <a href="{% url 'book_update' book.pk %}">Редагувати</a> |
+                    <a href="{% url 'book_delete' book.pk %}">Видалити</a>
+                </li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>Наразі немає книг у топі.</p>
+    {% endif %}
+{% endblock %}

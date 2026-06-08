@@ -1,0 +1,19 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>Книги {{ author.name }} за {{ year }} рік</h1>
+
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li><a href="{% url 'book_detail_by_writer_and_slug' writer_slug=author.slug book_slug=book.slug %}">{{ book.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Немає книг {{ author.name }} за {{ year }} рік.</p>
+    {% endif %}
+
+    <p><a href="{% url 'writer_detail' writer_slug=author.slug %}">Повернутися до сторінки {{ author.name }}</a></p>
+{% endblock %}
