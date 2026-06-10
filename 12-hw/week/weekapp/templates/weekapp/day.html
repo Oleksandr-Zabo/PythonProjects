@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>День тижня</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        img {
+            max-width: 600px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Сьогодні: {{ day_name }}</h1>
+    <img src="/media/{{ image }}" alt="{{ day_name }}">
+
+</body>
+</html>

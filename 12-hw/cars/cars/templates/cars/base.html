@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Автомобілі{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Головна</a> |
+        <a href="/toyota">Toyota</a> |
+        <a href="/honda">Honda</a> |
+        <a href="/renault">Renault</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
