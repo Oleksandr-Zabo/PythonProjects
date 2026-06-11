@@ -7,5 +7,5 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path('', include('sing.urls')),   # головний додаток
+    path('', include('sing.urls')),   # твій додаток
 )

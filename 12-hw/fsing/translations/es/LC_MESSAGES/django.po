@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-11 15:49+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+#: .\sing\templates\sing\song.html:6
+msgid "Song Lyric"
+msgstr "Letra de canción"
+
+msgid "Щедрик"
+msgstr "Schedryk"
+
+msgid "Щедрик, щедрик, щедрівочка,"
+msgstr "Schedryk, schedryk, pequeña golondrina,"
+
+msgid "Прилетіла ластівочка,"
+msgstr "Una golondrina ha llegado,"
+
+msgid "Стала собі щебетати,"
+msgstr "Comenzó a gorjear,"
+
+msgid "Господаря викликати:"
+msgstr "Llamando al dueño:"
+
+msgid "Вийди, вийди, господарю,"
+msgstr "Sal, sal, dueño,"
+
+msgid "Подивися на кошару,"
+msgstr "Mira tu redil,"
+
+msgid "Там овечки покотились,"
+msgstr "Allí las ovejas han parido,"
+
+msgid "А ягнички народились,"
+msgstr "Y los corderos han nacido,"
+
+msgid "В тебе товар весь хороший,"
+msgstr "Tus bienes son todos buenos,"
+
+msgid "Будеш мати мірку грошей,"
+msgstr "Tendrás una medida de dinero,"
+
+msgid "Хоч не гроші, то полова —"
+msgstr "Si no dinero, entonces paja —"
+
+msgid "В тебе жінка чорноброва."
+msgstr "Tienes una esposa de cejas negras."
+
+msgid "Прилетіла ластівочка."
+msgstr "Una golondrina ha llegado."
+

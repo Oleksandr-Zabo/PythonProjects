@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Інформація про навушники</title>
+</head>
+<body>
+    {% if info %}
+        <h1>{{ info.name }}</h1>
+        <p>{{ info.description }}</p>
+        <p><strong>Ціна:</strong> {{ info.price }}</p>
+        <p><a href="/">Повернутися до списку моделей</a></p>
+    {% else %}
+        <h2>Список доступних моделей:</h2>
+        <ul>
+            {% for key, value in models.items %}
+                <li>
+                    <a href="?model={{ key }}">{{ value.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

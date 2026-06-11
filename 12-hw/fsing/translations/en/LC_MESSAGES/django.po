@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-11 15:49+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Song Lyric"
+msgstr "Song Lyric"
+
+msgid "Щедрик"
+msgstr "Schedryk"
+
+msgid "Щедрик, щедрик, щедрівочка,"
+msgstr "Schedryk, schedryk, little swallow,"
+
+msgid "Прилетіла ластівочка,"
+msgstr "A swallow has flown in,"
+
+msgid "Стала собі щебетати,"
+msgstr "Started to chirp,"
+
+msgid "Господаря викликати:"
+msgstr "Calling the master:"
+
+msgid "Вийди, вийди, господарю,"
+msgstr "Come out, come out, master,"
+
+msgid "Подивися на кошару,"
+msgstr "Look at your sheepfold,"
+
+msgid "Там овечки покотились,"
+msgstr "There the ewes have lambed,"
+
+msgid "А ягнички народились,"
+msgstr "And the lambs are born,"
+
+msgid "В тебе товар весь хороший,"
+msgstr "All your goods are fine,"
+
+msgid "Будеш мати мірку грошей,"
+msgstr "You will have a measure of money,"
+
+msgid "Хоч не гроші, то полова —"
+msgstr "If not money, then chaff —"
+
+msgid "В тебе жінка чорноброва."
+msgstr "You have a dark-browed wife."
+
+msgid "Прилетіла ластівочка."
+msgstr "A swallow has flown in."

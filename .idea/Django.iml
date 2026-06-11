@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/10_Django_MyCity/django">
       <sourceFolder url="file://$MODULE_DIR$/10_Django_MyCity/django" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/10_Django_MyCity/django/django" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
