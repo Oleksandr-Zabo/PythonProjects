@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Відгук про додаток</title>
+</head>
+<body>
+    <h1>Залиште свій відгук</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Надіслати</button>
+    </form>
+
+    {% if formatted_data %}
+        <h2>Ваш відгук:</h2>
+        <p><strong>Нік:</strong> {{ formatted_data.nickname }}</p>
+        <p><strong>Email:</strong> {{ formatted_data.email }}</p>
+        <p><strong>Рейтинг:</strong> {{ formatted_data.stars }} ⭐</p>
+        <p><strong>Досвід:</strong> {{ formatted_data.experience }}</p>
+    {% endif %}
+</body>
+</html>

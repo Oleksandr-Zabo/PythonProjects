@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецензія на книгу</title>
+</head>
+<body>
+    <h1>Напишіть рецензію на книгу</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Надіслати</button>
+    </form>
+
+    {% if formatted_data %}
+        <h2>Ваша рецензія:</h2>
+        <p><strong>Нік:</strong> {{ formatted_data.nickname }}</p>
+        <p><strong>Рейтинг:</strong> {{ formatted_data.rating }}/100</p>
+        <p><strong>Рецензія:</strong> {{ formatted_data.review }}</p>
+        <p><strong>Спойлери:</strong>
+            {% if formatted_data.contains_spoilers %}
+                Так ⚠️
+            {% else %}
+                Ні ✅
+            {% endif %}
+        </p>
+    {% endif %}
+</body>
+</html>

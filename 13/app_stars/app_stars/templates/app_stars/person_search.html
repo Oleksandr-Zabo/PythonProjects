@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Пошук інформації про людину</title>
+</head>
+<body>
+    <h1>Пошук інформації про людину</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Пошук</button>
+    </form>
+
+    {% if formatted_data %}
+        <h2>Результати пошуку:</h2>
+        <ul>
+            {% for person in formatted_data %}
+                <li>
+                    <strong>{{ person.name }}</strong> — {{ person.city }} <br>
+                    {{ person.info }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div>
+            {% if formatted_data.has_previous %}
+                <a href="?page={{ formatted_data.previous_page_number }}">Попередня</a>
+            {% endif %}
+
+            <span>Сторінка {{ formatted_data.number }} із {{ formatted_data.paginator.num_pages }}</span>
+
+            {% if formatted_data.has_next %}
+                <a href="?page={{ formatted_data.next_page_number }}">Наступна</a>
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>
