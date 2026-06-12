@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ crismastree.name }}</title>
+</head>
+<body>
+    <h1>{{ crismastree.name }}</h1>
+    <img src="{{ crismastree.image.url }}" width="200">
+    <p>{{ crismastree.description }}</p>
+    <p>Price: {{ crismastree.price }}$</p>
+    <p>Likes: {{ crismastree.likes_count }}</p>
+    <a href="{% url 'like_crismastree' crismastree.id %}">Like</a>
+    <a href="{% url 'new_crismastree_list' %}">Back to list</a>
+</body>
+</html>

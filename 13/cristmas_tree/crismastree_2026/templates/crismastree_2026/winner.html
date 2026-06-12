@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Winner Tree</title>
+    <style>
+        .winner {
+            background-color: #ffeb3b;
+            padding: 20px;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Winner of Voting</h1>
+    {% if winner %}
+        <div class="winner">
+            <img src="{{ winner.image.url }}" width="200">
+            <h2>{{ winner.name }}</h2>
+            <p>{{ winner.description }}</p>
+            <p>Price: {{ winner.price }}$</p>
+            <p>Likes: {{ winner.likes_count }}</p>
+            <a href="{% url 'cristmas_tree_details' winner.id %}">Details</a>
+        </div>
+    {% else %}
+        <p>No trees yet.</p>
+    {% endif %}
+    <a href="{% url 'new_crismastree_list' %}">Back to list</a>
+</body>
+</html>

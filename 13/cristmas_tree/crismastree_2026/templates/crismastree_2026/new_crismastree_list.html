@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Christmas Trees</title>
+    <style>
+        .highlight {
+            background-color: #ffeb3b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Christmas Trees</h1>
+    <a href="{% url 'winner_crismastree' %}">See Winner</a>
+    <ul>
+        {% for tree in new_list %}
+            <li>
+                <img src="{{ tree.image.url }}" width="100">
+                <strong>{{ tree.name }}</strong> - {{ tree.price }}$
+                <p>{{ tree.description }}</p>
+                <p>Likes: {{ tree.likes_count }}</p>
+                <a href="{% url 'like_crismastree' tree.id %}">Like</a>
+                <a href="{% url 'cristmas_tree_details' tree.id %}">Details</a>
+            </li>
+        {% empty %}
+            <li>No trees yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
