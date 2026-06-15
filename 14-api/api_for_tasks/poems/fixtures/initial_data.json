@@ -1,0 +1,42 @@
+[
+  {
+    "model": "poems.author",
+    "pk": 1,
+    "fields": { "name": "Тарас Шевченко" }
+  },
+  {
+    "model": "poems.author",
+    "pk": 2,
+    "fields": { "name": "Ліна Костенко" }
+  },
+  {
+    "model": "poems.theme",
+    "pk": 1,
+    "fields": { "name": "Любов" }
+  },
+  {
+    "model": "poems.theme",
+    "pk": 2,
+    "fields": { "name": "Життя" }
+  },
+  {
+    "model": "poems.poem",
+    "pk": 1,
+    "fields": {
+      "title": "Заповіт",
+      "text": "Як умру, то поховайте...",
+      "author": 1,
+      "theme": 2
+    }
+  },
+  {
+    "model": "poems.poem",
+    "pk": 2,
+    "fields": {
+      "title": "Маруся Чурай",
+      "text": "Цей світ належить тим, хто любить...",
+      "author": 2,
+      "theme": 1
+    }
+  }
+]
