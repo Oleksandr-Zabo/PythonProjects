@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Додати новий проєкт</title>
+    <link rel="stylesheet" href="{% static 'portfolio/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="form-title">Додати новий проєкт</h2>
+        <form class="project-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                {{ form.title.label_tag }}
+                {{ form.title }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.description_source.label_tag }}
+                {{ form.description_source }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.description.label_tag }}
+                {{ form.description }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.markdown_file.label_tag }}
+                {{ form.markdown_file }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.image.label_tag }}
+                {{ form.image }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.link.label_tag }}
+                {{ form.link }}
+            </div>
+
+            <button type="submit" class="btn btn-success">Зберегти</button>
+        </form>
+    </div>
+</body>
+</html>

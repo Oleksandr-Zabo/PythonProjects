@@ -1,0 +1,64 @@
+﻿{% extends "portfolio/main.html" %}
+{% block title %}Головна{% endblock %}
+{% block content %}
+<div class="text-center">
+    <h2 class="mb-4">Ласкаво просимо до MiniPortfolio</h2>
+    <p class="lead">Це веб‑додаток для створення та перегляду портфоліо користувачів.</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Реєстрація та вхід</h5>
+                <p class="card-text">
+                    Створіть акаунт або увійдіть, щоб додавати власні роботи.
+                    Авторизовані користувачі можуть керувати своїм портфоліо та отримувати повідомлення у Telegram.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Додавання проєктів</h5>
+                <p class="card-text">
+                    Ви можете додати новий проєкт із назвою, описом, картинкою та посиланням.
+                    Усі роботи відображаються у вигляді карток з гарним оформленням.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Перегляд та видалення</h5>
+                <p class="card-text">
+                    Користувачі можуть переглядати портфоліо інших, а також надсилати запити на видалення власних робіт.
+                    Адміни отримують повідомлення про такі запити у Telegram.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Інтеграція з Telegram</h5>
+                <p class="card-text">
+                    Підключіть свій акаунт до бота <strong>@mini_portfolio_django_bot</strong>, щоб отримувати сповіщення:
+                </p>
+                <ul class="list-group list-group-flush text-start">
+                    <li class="list-group-item">Автор отримує повідомлення про створення нового проєкту</li>
+                    <li class="list-group-item">Адміни отримують повідомлення про запити на видалення</li>
+                    <li class="list-group-item">Пряме підключення через команду <code>/start</code> у боті</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
