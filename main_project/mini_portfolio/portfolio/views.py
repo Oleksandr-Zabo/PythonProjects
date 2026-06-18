@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_exempt
+import markdown
+from django.utils.safestring import mark_safe
 
 from .models import Project, DeleteRequest
 from .forms import ProjectForm
@@ -87,7 +89,16 @@ def add_project(request):
 '''Перегляд картки проєкту'''
 def project_detail(request, pk):
     project = get_object_or_404(Project, pk=pk)
+
+    if project.description:
+        project.description_html = mark_safe(
+            markdown.markdown(project.description, extensions=["fenced_code", "tables"])
+        )
+    else:
+        project.description_html = None
+
     return render(request, "portfolio/project_detail.html", {"project": project})
+
 
 
 '''Запит на видалення'''
@@ -102,27 +113,7 @@ def delete_request_view(request, project_id):
 
 
 '''Telegram з'єднання'''
-def connect_telegram(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        telegram_id = data.get("telegram_id")
-        username = data.get("username")
-
-        try:
-            user = User.objects.get(username=username)
-            profile, created = UserProfile.objects.get_or_create(user=user)
-            profile.telegram_id = telegram_id
-            profile.save()
-            return JsonResponse({"status": "ok"})
-        except User.DoesNotExist:
-            return JsonResponse({"status": "error", "message": "User not found"})
-
-@login_required
-def connect_telegram(request):
-    return render(request, "portfolio/connect_telegram.html")
-
 @csrf_exempt
-@login_required
 def connect_telegram(request):
     if request.method == "POST":
         data = json.loads(request.body)
@@ -138,3 +129,39 @@ def connect_telegram(request):
         except User.DoesNotExist:
             return JsonResponse({"status": "error", "message": "User not found"})
     return render(request, "portfolio/connect_telegram.html")
+
+
+'''API: Отримати проєкти користувача'''
+@csrf_exempt
+def api_user_projects(request, username):
+    try:
+        user = User.objects.get(username=username)
+        projects = Project.objects.filter(author=user).order_by("-created_at")
+        projects_data = [
+            {
+                "title": project.title,
+                "description": project.description,
+                "link": project.link,
+                "created_at": project.created_at.strftime("%Y-%m-%d %H:%M")
+            }
+            for project in projects
+        ]
+        return JsonResponse(projects_data, safe=False)
+    except User.DoesNotExist:
+        return JsonResponse({"error": "User not found"}, status=404)
+
+
+'''API: Отримати запити на видалення'''
+@csrf_exempt
+def api_delete_requests(request):
+    requests_data = DeleteRequest.objects.filter(status="pending").order_by("-created_at")
+    requests_list = [
+        {
+            "project_title": req.project.title,
+            "user_username": req.user.username,
+            "reason": req.reason,
+            "created_at": req.created_at.strftime("%Y-%m-%d %H:%M")
+        }
+        for req in requests_data
+    ]
+    return JsonResponse(requests_list, safe=False)

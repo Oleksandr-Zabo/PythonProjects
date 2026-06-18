@@ -23,5 +23,9 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ["title", "description", "image", "link", "description_source", "markdown_file"]
-
-
+        widgets = {
+            "description": forms.Textarea(attrs={"rows": 5}),
+        }
+        help_texts = {
+            "description": "Можна залишити порожнім, якщо підтягуватимеш з README.md"
+        }

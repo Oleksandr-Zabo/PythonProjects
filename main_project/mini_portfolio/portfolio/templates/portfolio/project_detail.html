@@ -7,7 +7,13 @@
     {% endif %}
     <div class="card-body">
         <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
+        {% if project.description_html %}
+    <div class="project-description">
+        {{ project.description_html|safe }}
+    </div>
+{% else %}
+    <p><em>Опис відсутній</em></p>
+{% endif %}
         <p><strong>Автор:</strong> {{ project.author.username }}</p>
         <div class="d-flex justify-content-center gap-3 mt-3">
             {% if project.link %}

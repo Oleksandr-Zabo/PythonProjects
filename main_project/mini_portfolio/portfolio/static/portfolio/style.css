@@ -16,6 +16,10 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+header .btn-sm {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
 
 header h1 {
     margin: 0;
@@ -27,6 +31,7 @@ header nav a, header nav span {
     margin-left: 15px;
     text-decoration: none;
     font-weight: 500;
+     margin-right: 8px;
 }
 
 header nav a:hover {

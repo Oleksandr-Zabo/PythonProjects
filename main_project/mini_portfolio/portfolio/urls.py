@@ -1,4 +1,4 @@
-﻿from django.urls import path
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -11,4 +11,6 @@ urlpatterns = [
     path("projects/<int:pk>/", views.project_detail, name="project_detail"),
     path("projects/<int:project_id>/delete_request/", views.delete_request_view, name="delete_request"),
     path("connect-telegram/", views.connect_telegram, name="connect_telegram"),
+    path("api/user-projects/<str:username>/", views.api_user_projects, name="api_user_projects"),
+    path("api/delete-requests/", views.api_delete_requests, name="api_delete_requests"),
 ]
